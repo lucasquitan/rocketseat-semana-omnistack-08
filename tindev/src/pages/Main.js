@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   Image,
   Text,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -25,8 +25,8 @@ export default function Main({ navigation }) {
     async function loadUsers() {
       const response = await api.get('/devs', {
         headers: {
-          user: id,
-        },
+          user: id
+        }
       });
 
       setUsers(response.data);
@@ -39,7 +39,7 @@ export default function Main({ navigation }) {
     const [user, ...rest] = users;
 
     await api.post(`/devs/${user._id}/likes`, null, {
-      headers: { user: id },
+      headers: { user: id }
     });
 
     setUsers(rest);
@@ -49,7 +49,7 @@ export default function Main({ navigation }) {
     const [user, ...rest] = users;
 
     await api.post(`/devs/${user._id}/dislikes`, null, {
-      headers: { user: id },
+      headers: { user: id }
     });
 
     setUsers(rest);
@@ -88,14 +88,16 @@ export default function Main({ navigation }) {
         )}
       </View>
 
-      <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleDislike}>
-          <Image source={dislike} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleLike}>
-          <Image source={like} />
-        </TouchableOpacity>
-      </View>
+      {users.length > 0 && (
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleDislike}>
+            <Image source={dislike} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleLike}>
+            <Image source={like} />
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
@@ -105,18 +107,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   logo: {
-    marginTop: 30
+    marginTop: 30,
   },
 
   cardContainer: {
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    maxHeight: 500
+    maxHeight: 500,
   },
 
   card: {
@@ -129,35 +131,35 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 0
   },
 
   avatar: {
     flex: 1,
-    height: 300
+    height: 300,
   },
 
   footer: {
     backgroundColor: '#fff',
     paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingVertical: 15
   },
 
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333'
+    color: '#333',
   },
 
   bio: {
     color: '#999',
     marginTop: 5,
-    lineHeight: 18
+    lineHeight: 18,
   },
 
   buttonsContainer: {
     flexDirection: 'row',
-    marginBottom: 30,
+    marginBottom: 30
   },
 
   button: {
@@ -177,8 +179,8 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2
+    }
   },
 
   empty: {
@@ -188,5 +190,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-  },
+    paddingBottom: 150,
+  }
 });
