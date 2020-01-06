@@ -8,10 +8,10 @@
   src="https://img.shields.io/github/languages/count/lucasquitan/rocketseat-semana-omnistack-08">
   <img alt="Principal Linguagem"
   src="https://img.shields.io/github/languages/top/lucasquitan/rocketseat-semana-omnistack-08">
-  <img alt="Linguagens"
+  <img alt="Tamanho do repositório"
   src="https://img.shields.io/github/repo-size/lucasquitan/rocketseat-semana-omnistack-08">
-  <img alt="Linguagens"
-  src="https://img.shields.io/github/last-commit/lucasquitan/lucasquitan/rocketseat-semana-omnistack-08">
+  <img alt="Último commit"
+  src="https://img.shields.io/github/last-commit/lucasquitan/rocketseat-semana-omnistack-08">
 </p>
 
 ## 🚀 Tecnologias  
